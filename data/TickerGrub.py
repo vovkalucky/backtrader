@@ -28,7 +28,7 @@ def start_grub():
         category="linear",
         symbol=ticker_name,
         interval=interval,
-        limit=1000
+        limit=2000
     )
 
     # Достаём список свечей

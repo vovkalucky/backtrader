@@ -58,8 +58,8 @@ class CandlesOnly(Strategy): #Наследуемся c1асса Strategy
         if self.order:
             return
         if not self.position:
-            #is_buy = self.close[0] < self.close[-1] and self.close[-2]
-            is_buy = self.close[0] < self.close[-1] and self.close[-1] < self.close[-2]
+            is_buy = self.close[0] < self.close[-1] and self.close[-2]
+            #is_buy = self.close[0] < self.close[-1] and self.close[-1] < self.close[-2]
             if is_buy:
                 print("Make BUY!")
                 self.order = self.buy()
@@ -106,7 +106,7 @@ class MyCSVData(GenericCSVData):
     }
 
 
-csv_file_path = abspath("./data/BTCUSDT_D.csv")  # Путь к источнику данных
+csv_file_path = abspath("./data/BTCUSDT_60.csv")  # Путь к источнику данных
 data = MyCSVData(
     dataname = csv_file_path,
     fromdate = datetime(2022, 1, 24),

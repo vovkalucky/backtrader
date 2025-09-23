@@ -1,9 +1,0 @@
-backtrader==1.9.78.123
-certifi==2025.8.3
-charset-normalizer==3.4.3
-idna==3.10
-pybit==5.11.0
-pycryptodome==3.23.0
-requests==2.32.5
-urllib3==2.5.0
-websocket-client==1.8.0
