@@ -2,6 +2,8 @@ from os.path import abspath # Функция дпя работы с путями
 from datetime import datetime # Объект дпя работы со временем
 from backtrader import Cerebro, Strategy, sizers, analyzers, OrderBase  # Компоненты
 from backtrader.feeds import GenericCSVData # Основной class дпя CSV
+# import matplotlib
+# matplotlib.use('TkAgg')
 
 
 class CandlesOnly(Strategy): #Наследуемся c1асса Strategy
@@ -116,8 +118,9 @@ data = MyCSVData(
 cerebro = Cerebro()  # Создаём объект Церебро. Мозг Бэктрейдера
 cerebro.adddata(data)  # Добавляем поток данных. Хранится в self.data
 cerebro.addstrategy(CandlesOnly)  # Добавляем стратегию CandlesOnly
-cerebro.broker.setcash(1000)  # стартовый баланс
-cerebro.addsizer(sizers.FixedSize, stake=1)  # Размер позиции
-cerebro.broker.setcommission(commission=0.00018)  # Комиссия брокера
+cerebro.broker.setcash(10000)  # стартовый баланс
+cerebro.addsizer(sizers.FixedSize, stake=0.1)  # Размер позиции
+cerebro.broker.setcommission(commission=0.0018)  # Комиссия брокера
 cerebro.run()  # Запускаем бэктест
 cerebro.plot(style="candle")  # Рисуем свечной график
+cerebro.plot()
